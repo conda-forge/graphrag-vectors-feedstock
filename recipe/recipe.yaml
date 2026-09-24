@@ -1,8 +1,8 @@
 schema_version: 1
 
 context:
-  version: "3.1.1"
-  python_min: "3.11"
+  version: 3.2.0
+  python_min: '3.11'
 
 package:
   name: graphrag-vectors
@@ -10,7 +10,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/g/graphrag-vectors/graphrag_vectors-${{ version }}.tar.gz
-  sha256: 2b6cd551ac1cf03b91c1711c1199f6e79b4af9234a10e716749b699e69945f64
+  sha256: d6dc642633688d15972b56208e6f260511e580add582f04165c83de41c189b80
 
 build:
   number: 0
@@ -24,24 +24,23 @@ requirements:
     - pip
   run:
     - python >=${{ python_min }},<3.14
-    - azure-core >=1.32,<2.dev0
-    - azure-cosmos >=4.9,<5.dev0
+    - azure-core >=1.41,<2.dev0
+    - azure-cosmos >=4.16,<5.dev0
     - azure-identity >=1.25,<2.dev0
     - azure-search-documents >=12.0,<13.dev0
-    - graphrag-common ==3.1.1
-    - lancedb >=0.34.0,<0.35.dev0
-    - numpy >=2.1,<3.dev0
+    - graphrag-common ==3.2.0
+    - lancedb >=0.38.0,<0.39.dev0
+    - numpy >=2.4,<3.dev0
     - pyarrow >=25.0,<26.dev0
-    - pydantic >=2.10,<3.dev0
-
+    - pydantic >=2.13,<3.dev0
 tests:
   - python:
       imports:
         - graphrag_vectors
       pip_check: true
-      python_version: 
+      python_version:
         - ${{ python_min }}.*
-        - "*"
+        - '*'
 
 about:
   summary: GraphRAG vector store package.
